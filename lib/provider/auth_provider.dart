@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class AuthProvider extends ChangeNotifier {
   String get uid => _uid!;
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   AuthProvider() {
     checkLog();
@@ -40,7 +42,7 @@ class AuthProvider extends ChangeNotifier {
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        otpScreen(verificationId: verificationId)));
+                        OtpScreen(verificationId: verificationId)));
           }),
           codeAutoRetrievalTimeout: ((verificationId) {}));
     } on FirebaseAuthException catch (e) {
@@ -73,6 +75,18 @@ class AuthProvider extends ChangeNotifier {
       showSnackBar(context, e.message.toString());
       _isLoading = false;
       notifyListeners();
+    }
+  }
+
+  Future<bool> checkExistingUser() async {
+    DocumentSnapshot snapshot =
+        await _firebaseFirestore.collection("users").doc(_uid).get();
+    if (snapshot.exists) {
+      print("USER EXISTS");
+      return true;
+    } else {
+      print("NEW USER");
+      return false; 
     }
   }
 }
