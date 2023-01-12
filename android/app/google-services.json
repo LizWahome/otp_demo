@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1011670183318",
+    "project_id": "kago-8f492",
+    "storage_bucket": "kago-8f492.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011670183318:android:6e9d1779e7187c441041b7",
+        "android_client_info": {
+          "package_name": "com.example.kago"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1011670183318-nqtjgg68o5r737qijke8f0ga4qrl0if9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTrVkjMB8kipjflmAWpmFPvNuwMBhJZ0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1011670183318-nqtjgg68o5r737qijke8f0ga4qrl0if9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
